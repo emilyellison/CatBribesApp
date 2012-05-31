@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>CatBribesApp</title>
+  <title>CatBribes</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -9,10 +9,11 @@
 <body>
 	<%= render 'layouts/header' %>
 	<div class='content'>
-		<h2><%= yield :title %></h2>
 		<% if flash[:notice] %>
+			<br/>
 			<p class='notice'><%= flash[:notice] %></p>
 		<% end %>
+		<h2><%= yield :title %></h2>
 		<%= yield %>
 		<%= render 'layouts/footer' %>
 	</div>
