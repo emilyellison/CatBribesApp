@@ -1,12 +1,15 @@
 <%= provide(:title, 'CatBribes') %>
-<p>You feed them, and they allow you to take adorable pictures.</p>
+<% if @current_member.present? %>
+	<h3>Add a CatBribe</h3>
+	<br/>
+	<div id='catbribes_form'>
+		<%= render 'catbribes/form' %>
+	</div>
+	<hr/>
+	<br/>
+<% end %>
+<h3>You feed them, and they allow you to take adorable pictures.</h3>
 <br/>
-<br/>
-<div class='catbribes'>
-	<% @catbribes.each do |catbribe| %>
-		<p><%= image_tag catbribe.image, width: 300 %></p>
-		<p><%= catbribe.caption %></p>
-		<p class='created_at'>Created <%= time_ago_in_words(catbribe.created_at) %> ago by <%= catbribe.member.full_name %></p>
-		<br/><br/>
-	<% end %>
+<div id='catbribes'>
+	<%= render :partial => @catbribes.reverse %>
 </div>

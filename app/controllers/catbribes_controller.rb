@@ -4,19 +4,19 @@ class CatbribesController < ApplicationController
   
   def index
     @catbribes = Catbribe.all
-  end
-  
-  def new
     @catbribe = Catbribe.new
   end
   
   def create
     @catbribe = Catbribe.new(params[:catbribe])
     @catbribe.member_id = session[:mid]
-    if @catbribe.save
-      redirect_to root_url, notice: 'Congrats on adding your CatBribe!'
-    else
-      render :new
+    respond_to do |format|
+      if @catbribe.save
+        format.html { redirect_to root_url, notice: 'Congrats on adding your CatBribe!' }
+        format.js
+      else
+        format.html { render action: 'new' }
+      end
     end
   end
   

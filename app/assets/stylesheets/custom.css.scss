@@ -12,6 +12,9 @@ body {
 			padding:10px 0px 25px;
 			font-size:25px;
 		}
+		h3 {
+			font-size:20px;
+		}
 		a, p {
 			font-size:20px;
 		}
@@ -24,6 +27,9 @@ body {
 				font-family:futura;
 				font-size:15px;
 			}
+			textarea {
+				border-radius:4px;
+			}
 			.button {
 				padding:5px 10px;
 				border-radius:4px;
@@ -35,7 +41,8 @@ body {
 				color:white;
 			}
 		}
-		.catbribes {
+		#catbribes {
+			list-style: none;
 			p {
 				padding:5px 0px;
 			}
@@ -44,6 +51,7 @@ body {
 				font-size:15px;
 			}
 		}
+
 		.notice {
 			padding:0px 0px 20px;
 			font-size:18px;
@@ -68,5 +76,8 @@ body {
 		p {
 			padding:10px 0px;
 		}
+	}
+	.content {
+		background-image: -webkit-linear-gradient(top, white, ghostwhite);
 	}
 }
