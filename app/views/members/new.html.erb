@@ -1,12 +1,13 @@
-<h2>Sign Up</h2>
-
+<%= provide(:title, 'Sign Up') %>
 <% if @member.errors.present? %>
-	<p>Whoops! You must correct your sign-up information to join CatBribes.</p>
-	<ul>
-	<% @member.errors.full_messages.each do |message| %>
-		<li><%= message %>.</li>
-	<% end %>
-	</ul>
+	<div class='notice'>
+		<p>Whoops! You must correct your sign-up information to join CatBribes.</p>
+
+		<% @member.errors.full_messages.each do |message| %>
+			<li><%= message %>.</li>
+		<% end %>
+
+	</div>
 <% end %>
 
 <%= form_for @member do |f| %>

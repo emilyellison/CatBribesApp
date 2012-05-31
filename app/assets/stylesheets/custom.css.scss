@@ -1,0 +1,56 @@
+body {
+	header, .content {
+		padding:10px 250px;
+		font-family:futura;
+		h1, input, label, select {
+			padding:6px 0px;
+		}
+		h1 a {
+			font-size:30px;
+		}
+		h2 {
+			padding:10px 0px 25px;
+			font-size:25px;
+		}
+		a, p {
+			font-size:20px;
+		}
+		a {
+			text-decoration:none;
+		}
+		form {
+			input, label, select {
+				display:block;
+				font-family:futura;
+				font-size:15px;
+			}
+			.button {
+				padding:5px 10px;
+				border-radius:4px;
+				border:1px solid royalblue;
+				background-image: -webkit-linear-gradient(top, dodgerblue, royalblue);
+				font-family:futura;
+				font-size:15px;
+				font-weight:bold;
+				color:white;
+			}
+		}
+		.notice {
+			padding:0px 0px 20px;
+			font-size:18px;
+			color:darkorange;
+			p, li {
+				padding:5px 0px;
+			}
+		}
+	}
+	header {
+		background-image: -webkit-linear-gradient(top, dodgerblue, royalblue);
+		a, p {
+			color:white;
+		}
+		p {
+			padding:10px 0px;
+		}
+	}
+}
