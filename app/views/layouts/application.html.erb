@@ -8,7 +8,11 @@
 </head>
 <body>
 	<h1><%= link_to 'CatBribes', root_url %></h1>
-	<p><%= link_to 'Sign Up', new_member_url %></p>
+	<% if @current_member %>
+		<p><%= link_to 'Sign Out', sessions_url %>
+	<% else %>
+		<p><%= link_to 'Sign In', new_session_url %></p>
+	<% end %>
 	<% if flash[:notice] %>
 		<p><%= flash[:notice] %></p>
 	<% end %>
