@@ -2,11 +2,9 @@
 <% if @member.errors.present? %>
 	<div class='notice'>
 		<p>Whoops! You must correct your sign-up information to join CatBribes.</p>
-
 		<% @member.errors.full_messages.each do |message| %>
 			<li><%= message %>.</li>
 		<% end %>
-
 	</div>
 <% end %>
 <%= form_for @member do |f| %>

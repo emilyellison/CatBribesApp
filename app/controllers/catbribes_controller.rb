@@ -16,7 +16,6 @@ class CatbribesController < ApplicationController
     if @catbribe.save
       redirect_to root_url, notice: 'Congrats on adding your CatBribe!'
     else
-      flash.now[:notice] = 'Invalid image/caption.'
       render :new
     end
   end
