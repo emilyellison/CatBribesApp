@@ -1,0 +1,24 @@
+<h2>Sign Up</h2>
+
+<% if @member.errors.present? %>
+	<p>Whoops! You must correct your sign-up information to join CatBribes.</p>
+	<ul>
+	<% @member.errors.full_messages.each do |message| %>
+		<li><%= message %>.</li>
+	<% end %>
+	</ul>
+<% end %>
+
+<%= form_for @member do |f| %>
+	<%= f.label :first, 'First Name' %>
+	<%= f.text_field :first %>
+	<%= f.label :last, 'Last Name' %>
+	<%= f.text_field :last %>
+	<%= f.label :email, 'E-mail' %>
+	<%= f.text_field :email %>
+	<%= f.label :password %>
+	<%= f.password_field :password %>
+	<%= f.label :password_confirmation, 'Confirm Password' %>
+	<%= f.password_field :password_confirmation %><br/>
+	<%= f.submit 'Sign Up', class: 'button' %>
+<% end %>
