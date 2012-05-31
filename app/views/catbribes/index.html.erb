@@ -6,7 +6,7 @@
 	<% @catbribes.each do |catbribe| %>
 		<p><%= image_tag catbribe.image, width: 300 %></p>
 		<p><%= catbribe.caption %></p>
-		<p class='created_at'><%= catbribe.created_at %> by <%= catbribe.member.full_name %></p>
-		<br/>
+		<p class='created_at'>Created <%= time_ago_in_words(catbribe.created_at) %> ago by <%= catbribe.member.full_name %></p>
+		<br/><br/>
 	<% end %>
 </div>

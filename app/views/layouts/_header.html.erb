@@ -1,0 +1,9 @@
+<header>
+	<h1><%= link_to 'CatBribes', root_url %></h1>
+	<% if @current_member %>
+		<p><%= link_to 'Add a CatBribe', new_catbribe_url %> |
+		<%= link_to 'Sign Out', sessions_url %></p>
+	<% else %>
+		<p><%= link_to 'Sign In', new_session_url %></p>
+	<% end %>
+</header>
