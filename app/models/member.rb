@@ -17,4 +17,8 @@ class Member < ActiveRecord::Base
     length: { maximum: 50 }, 
     format: { with: VALID_EMAIL_REGEX }, 
     uniqueness: { case_sensitive: false }
+    
+  def full_name
+    "#{self.first} #{self.last}"
+  end
 end

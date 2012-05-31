@@ -1,0 +1,8 @@
+<%= provide(:title, 'Add a CatBribe') %>
+
+<%= form_for @catbribe, html: { multipart: true } do |f| %>
+	<%= f.file_field :image %>
+	<%= f.label :caption %>
+	<%= f.text_area :caption, rows: 2 %><br/>
+	<%= f.submit 'Add a CatBribe', class: 'button' %>
+<% end %>

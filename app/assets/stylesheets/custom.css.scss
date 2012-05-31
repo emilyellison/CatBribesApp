@@ -19,7 +19,7 @@ body {
 			text-decoration:none;
 		}
 		form {
-			input, label, select {
+			input, label, select, textarea {
 				display:block;
 				font-family:futura;
 				font-size:15px;
@@ -33,6 +33,15 @@ body {
 				font-size:15px;
 				font-weight:bold;
 				color:white;
+			}
+		}
+		.catbribes {
+			p {
+				padding:5px 0px;
+			}
+			.created_at {
+				color:darkgrey;
+				font-size:15px;
 			}
 		}
 		.notice {
