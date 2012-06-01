@@ -6,6 +6,8 @@ class CatbribesController < ApplicationController
     @catbribes = Catbribe.all
     @catbribe = Catbribe.new
     @rating = Rating.new
+    @preloaded_ratings = Rating.all(:select => "*, max(created_at)", :group => :catbribe_id) 
+
   end
   
   def create
