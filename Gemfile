@@ -7,6 +7,7 @@ gem 'rails', '3.2.3'
 
 gem 'thin'
 gem 'carrierwave'
+gem 'jquery-star-rating-rails'
 
 group :development do
 	gem 'sqlite3'

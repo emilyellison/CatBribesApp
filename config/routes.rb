@@ -5,6 +5,7 @@ CatBribesApp::Application.routes.draw do
   resources :catbribes, only: [ :index, :new, :create ]
   resources :members, only: [ :new, :create, :show ]
   resources :sessions, only: [ :new, :create, ]
+  resources :ratings, only: [ :create ]
   
   get 'sessions' => 'sessions#destroy'
   

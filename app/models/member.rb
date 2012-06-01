@@ -1,6 +1,7 @@
 class Member < ActiveRecord::Base
   attr_accessible :email, :first, :last, :password, :password_confirmation
   has_many :catbribes
+  has_many :ratings
   has_secure_password
   
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i

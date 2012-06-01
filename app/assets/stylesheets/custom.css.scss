@@ -21,6 +21,13 @@ body {
 		a {
 			text-decoration:none;
 		}
+		p {
+			padding:10px 0px;
+		}
+		img, textarea {
+			border-radius:4px;
+			border:1px solid darkgrey;
+		}
 		form {
 			input, label, select, textarea {
 				display:block;
@@ -28,7 +35,7 @@ body {
 				font-size:15px;
 			}
 			textarea {
-				border-radius:4px;
+				width:300px;
 			}
 			.button {
 				padding:5px 10px;
@@ -50,8 +57,10 @@ body {
 				color:darkgrey;
 				font-size:15px;
 			}
+			.rating_form {
+				padding:6px 0px;
+			}
 		}
-
 		.notice {
 			padding:0px 0px 20px;
 			font-size:18px;

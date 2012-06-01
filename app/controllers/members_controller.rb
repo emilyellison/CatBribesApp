@@ -1,5 +1,7 @@
 class MembersController < ApplicationController
 
+  before_filter :logged_in_member, only: [ :show ]
+
   def new
     @member = Member.new
   end

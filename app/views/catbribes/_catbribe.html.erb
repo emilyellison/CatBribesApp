@@ -1,8 +1,21 @@
 <%= content_tag_for(:li, catbribe) do %>
 	<p><%= image_tag catbribe.image, width: 300 %></p>
-	<p><%= catbribe.caption %></p>
+	<p><%= catbribe.caption %> </p>	
 	<p class='created_at'>
 		Created <%= time_ago_in_words(catbribe.created_at) %> ago by <%= catbribe.member.full_name %>.
 	</p>
+	<% if @current_member %>
+		<div class='rating_form'>
+		<%= form_for @rating, remote: true do |f| %>
+			<%= f.hidden_field :catbribe_id, value: catbribe.id %>
+			<%= f.hidden_field :member_id, value: @current_member.id %>
+			<% 5.times do |i| %>
+				<%= f.radio_button :bribes, "#{i + 1}", :class => 'star'  %>
+			<% end %>
+			<%= f.submit 'Rate', class: 'button' %>
+		<% end %>
+		</div>
+	<% end %>
 	<br/><br/>
 <% end %>
+

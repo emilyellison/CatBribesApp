@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120531030335) do
+ActiveRecord::Schema.define(:version => 20120531182721) do
 
   create_table "catbribes", :force => true do |t|
     t.string   "image"
@@ -31,5 +31,13 @@ ActiveRecord::Schema.define(:version => 20120531030335) do
   end
 
   add_index "members", ["email"], :name => "index_members_on_email", :unique => true
+
+  create_table "ratings", :force => true do |t|
+    t.integer  "bribes"
+    t.integer  "member_id"
+    t.integer  "catbribe_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
 end

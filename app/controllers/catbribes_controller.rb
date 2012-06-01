@@ -1,10 +1,11 @@
 class CatbribesController < ApplicationController
   
-  before_filter :logged_in_member, except: [ :index ]
+  before_filter :logged_in_member, only: [ :create ]
   
   def index
     @catbribes = Catbribe.all
     @catbribe = Catbribe.new
+    @rating = Rating.new
   end
   
   def create
