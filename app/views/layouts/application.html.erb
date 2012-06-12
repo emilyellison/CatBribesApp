@@ -8,14 +8,20 @@
 </head>
 <body>
 	<%= render 'layouts/header' %>
-	<div class='content'>
-		<% if flash[:notice] %>
+	<div class='catbribes_content'>
+		<div class='container'>
+			<% if flash[:notice] %>
+				<br/>
+				<p class='notice'><%= flash[:notice] %></p>
+			<% end %>
+			<div class='row'>
+				<h2 class='span12'><%= yield :title %></h2>
+				
+			</div>
 			<br/>
-			<p class='notice'><%= flash[:notice] %></p>
-		<% end %>
-		<h2><%= yield :title %></h2>
-		<%= yield %>
-		<%= render 'layouts/footer' %>
+			<%= yield %>
+		</div>
 	</div>
+	<%= render 'layouts/footer' %>
 </body>
 </html>

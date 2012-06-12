@@ -1,11 +1,19 @@
-<header>
-	<h1><%= link_to 'CatBribes', root_url %></h1>
-	<% if @current_member %>
-		<p>
-			<%= link_to 'Profile', member_url(@current_member.id) %> |
-			<%= link_to 'Sign Out', sessions_url %>
-		</p>
-	<% else %>
-		<p><%= link_to 'Sign In', new_session_url %></p>
-	<% end %>
-</header>
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+			<header>
+				<h1><%= link_to 'CatBribes', root_url, class: 'brand' %></h1>
+				<% if @current_member %>
+					<ul class='nav pull-right'>
+						<li><%= link_to 'Profile', member_url(@current_member.id) %></li>
+						<li><%= link_to 'Sign Out', sessions_url %></li>
+					</ul>
+				<% else %>
+					<ul class='nav pull-right'>
+						<li><%= link_to 'Sign In', new_session_url %></li>
+					</ul>
+				<% end %>
+			</header>
+		</div>
+	</div>
+</div>

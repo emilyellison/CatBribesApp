@@ -1,104 +1,56 @@
-body {
-	header, .content {
-		padding:10px 250px;
-		font-family:futura;
-		h1, input, label, select {
-			padding:6px 0px;
+/*Header */
+
+.navbar-fixed-top {
+	.navbar-inner {
+		background: -webkit-linear-gradient(top, dodgerblue, royalblue);
+		.container {
+			header {
+				h1 {
+					a {
+						font-size:30px;
+						font-weight:bold;
+						color:white;
+					}
+				}
+				ul li {
+					a {
+						margin:5px 0px;
+						font-size:20px;
+						color:white;
+					} 
+				}
+			}
 		}
-		h1 a {
-			font-size:30px;
+	}
+}
+.navbar-fixed-bottom {
+	.navbar-inner {
+		background:-webkit-linear-gradient(top, dodgerblue, royalblue);
+		background:-ms-linear-gradient(top, dodgerblue, royalblue);
+		background:-o-linear-gradient(top, dodgerblue, royalblue);
+		background:-moz-linear-gradient(top, dodgerblue, royalblue);
+		background:-linear-gradient(top, dodgerblue, royalblue);
+		
+		padding:10px;
+		p {
+			margin:0px 0px;
+			font-size:15px;
+			color:white;
+			a {
+				color:orange;
+			}
 		}
-		h2 {
-			padding:10px 0px 25px;
-			font-size:25px;
-		}
-		h3 {
-			font-size:20px;
-		}
-		a, p {
-			font-size:20px;
-		}
+	}
+}
+.catbribes_content {
+	.container {
+		padding:60px 0px;
 		a {
 			text-decoration:none;
 		}
-		p {
-			padding:10px 0px;
-		}
-		img, textarea {
-			border-radius:4px;
-			border:1px solid darkgrey;
-		}
-		form {
-			input, label, select, textarea {
-				display:block;
-				font-family:futura;
-				font-size:15px;
-			}
-			textarea {
-				width:300px;
-			}
-			.button {
-				padding:5px 10px;
-				border-radius:4px;
-				border:1px solid royalblue;
-				background-image: -webkit-linear-gradient(top, dodgerblue, royalblue);
-				font-family:futura;
-				font-size:15px;
-				font-weight:bold;
-				color:white;
-			}
-		}
-		#catbribes {
-			list-style: none;
-			p {
-				padding:5px 0px;
-			}
-			.created_at {
-				color:darkgrey;
-				font-size:15px;
-			}
-			.rating_form {
-				padding:6px 0px;
-			}
-		}
-		.notice {
-			padding:0px 0px 20px;
-			font-size:18px;
-			color:darkorange;
-			p, li {
-				padding:5px 0px;
-			}
-		}
-		#neo {
-			height:800px;
-		}
-		#neo_story {
-			width:500px;
-			float:left;
-		}
-		#neo_pic {
-			width:400px;
-			float:left;
-			padding-left:100px;
-		}
-		footer {
-			color:darkgrey;
-			a, p {
-				font-size:15px;
-				padding:2px 0px;
-			}
-		}
 	}
-	header {
-		background-image: -webkit-linear-gradient(top, dodgerblue, royalblue);
-		a, p {
-			color:white;
-		}
-		p {
-			padding:10px 0px;
-		}
-	}
-	.content {
-		background-image: -webkit-linear-gradient(bottom, white, ghostwhite);
+	img {
+		border-radius:8px;
+		box-shadow: 4px 4px 7px rgba(0,0,0,0.25);
 	}
 }
