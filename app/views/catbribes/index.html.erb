@@ -11,15 +11,4 @@
 			<%= render :partial => @catbribes.reverse %>
 		</div>
 	</div>
-	<div class='span6'>
-		<div class='hero-unit'>
-			<% if @current_member.present? %>
-			<h3>Add Your CatBribe</h3>
-			<br/>
-				<div id='catbribes_form'>
-					<%= render 'catbribes/form' %>
-				</div>
-			<% end %>
-		</div>
-	</div>
 </div>

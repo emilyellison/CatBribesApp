@@ -7,13 +7,7 @@ class Catbribe < ActiveRecord::Base
   
   validates :caption, presence: true
   validates :member_id, presence: true
-  
-  validate :image?
+  validates :image, presence: true
 
-  def image?
-    if @original_filename == nil
-      errors.add(:image, "must not be blank.")
-    end
-  end
   
 end

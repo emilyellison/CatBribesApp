@@ -10,6 +10,10 @@ class CatbribesController < ApplicationController
 
   end
   
+  def new
+    @catbribe = Catbribe.new
+  end
+  
   def create
     @catbribe = Catbribe.new(params[:catbribe])
     @catbribe.member_id = session[:mid]
@@ -18,10 +22,7 @@ class CatbribesController < ApplicationController
         format.html { redirect_to root_url, notice: 'Congrats on adding your CatBribe!' }
         format.js
       else
-        @catbribes = Catbribe.all
-        @rating = Rating.new
-        @preloaded_ratings = Rating.all(:select => "*, max(created_at)", :group => :catbribe_id)
-        format.html { render :index }
+        format.html { render :new }
       end
     end
   end
