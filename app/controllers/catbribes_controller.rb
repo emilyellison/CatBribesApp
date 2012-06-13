@@ -18,7 +18,10 @@ class CatbribesController < ApplicationController
         format.html { redirect_to root_url, notice: 'Congrats on adding your CatBribe!' }
         format.js
       else
-        format.html { render action: 'new' }
+        @catbribes = Catbribe.all
+        @rating = Rating.new
+        @preloaded_ratings = Rating.all(:select => "*, max(created_at)", :group => :catbribe_id)
+        format.html { render :index }
       end
     end
   end

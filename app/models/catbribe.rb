@@ -5,8 +5,15 @@ class Catbribe < ActiveRecord::Base
   
   mount_uploader :image, ImageUploader
   
-  validates :image, presence: true
   validates :caption, presence: true
   validates :member_id, presence: true
+  
+  validate :image?
+
+  def image?
+    if @original_filename == nil
+      errors.add(:image, "must not be blank.")
+    end
+  end
   
 end

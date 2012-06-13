@@ -1,14 +1,25 @@
 <%= provide(:title, 'CatBribes') %>
-<h3>You feed them, and they allow you to take adorable pictures.</h3>
-
-<% if @current_member.present? %>
-	<br/>
-	<div id='catbribes_form'>
-		<%= render 'catbribes/form' %>
+<div class='row'>
+	<div class='span12'>
+		<h3>You feed them, and they allow you to take adorable pictures.</h3>
 	</div>
-<% end %>
+</div>
 <br/>
-<br/>
-<div id='catbribes'>
-	<%= render :partial => @catbribes.reverse %>
+<div class='row'>
+	<div class='span6'>
+		<div id='catbribes'>
+			<%= render :partial => @catbribes.reverse %>
+		</div>
+	</div>
+	<div class='span6'>
+		<div class='hero-unit'>
+			<% if @current_member.present? %>
+			<h3>Add Your CatBribe</h3>
+			<br/>
+				<div id='catbribes_form'>
+					<%= render 'catbribes/form' %>
+				</div>
+			<% end %>
+		</div>
+	</div>
 </div>

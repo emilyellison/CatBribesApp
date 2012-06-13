@@ -48,14 +48,32 @@
 		a {
 			text-decoration:none;
 		}
+		.row {
+			.span6 {
+				.hero-unit {
+					padding:30px;
+					background:aliceblue;
+					border:1px solid lightgrey;
+							box-shadow: 2px 2px 7px rgba(0,0,0,0.25);
+				}
+			}
+		}
 	}
 	img {
 		border:1px solid lightgrey;
 		border-radius:8px;
 		box-shadow: 2px 2px 7px rgba(0,0,0,0.25);
 	}
+	#neo {
+		text-align:right;
+	}
 	p, label, input, a {
 		font-size:16px;
+	}
+	.alert-error {
+		li {
+			font-size:14px;
+		}
 	}
 	a {
 		color:darkorange;

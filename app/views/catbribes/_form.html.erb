@@ -1,16 +1,16 @@
 <% if @current_member.present? %>
 	<% if @catbribe.errors.present? %>
-		<div class='notice'>
+		<div class='alert alert-error'>
 			<p>Whoops! Your CatBribe is missing something...</p>
 			<% @catbribe.errors.full_messages.each do |message| %>
 				<li><%= message %>.</li>
 			<% end %>
 		</div>
 	<% end %>
-	<%= form_for @catbribe, remote: true, html: { multipart: true } do |f| %>
-		<%= f.file_field :image %>
+	<%= form_for @catbribe, url: catbribes_url, remote: true, html: { multipart: true } do |f| %>
+		<%= f.file_field :image %><br/><br/>
 		<%= f.label :caption %>
-		<%= f.text_area :caption, rows: 2 %><br/>
+		<%= f.text_area :caption, rows: 3, placeholder: 'So it seems that Mittens also enjoys eating mittens.' %><br/><br/>
 		<%= f.submit 'Add a CatBribe', class: 'btn btn-info' %>
 	<% end %>
 	<br/>
