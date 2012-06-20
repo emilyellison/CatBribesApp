@@ -20,7 +20,7 @@
 			<% @member.cats.each do |cat| %>
 				<h2><%= cat.name %> <%= link_to 'Edit', edit_cat_url(cat.id) %></h2>
 				<p><%= cat.breed %></p>
-				<p><%= cat.birthday %></p>
+				<p><%= time_ago_in_words(cat.birthday).capitalize %> old.</p>
 				<p><%= cat.description %></p>
 			<% end %>
 		<% end %>
