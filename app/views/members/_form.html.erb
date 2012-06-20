@@ -1,0 +1,27 @@
+<% if @member.errors.present? %>
+	<div class='notice'>
+		<p>Whoops! Something went wrong...</p>
+		<% @member.errors.full_messages.each do |message| %>
+			<li><%= message %>.</li>
+		<% end %>
+	</div>
+<% end %>
+<%= form_for @member do |f| %>
+	<%= f.label :first, 'First Name' %>
+	<%= f.text_field :first %>
+	<%= f.label :last, 'Last Name' %>
+	<%= f.text_field :last %>
+	<%= f.label :email, 'E-mail' %>
+	<%= f.text_field :email %>
+	<% if @member.new_record? %>
+		<%= f.label :password %>
+		<%= f.password_field :password %>
+		<%= f.label :password_confirmation, 'Confirm Password' %>
+		<%= f.password_field :password_confirmation %>
+		<br/><br/>
+		<%= f.submit 'Sign Up', class: 'btn btn-large btn-info' %>
+	<% else %>
+		<br/><br/>
+		<%= f.submit 'Update Profile', class: 'btn btn-large btn-info' %>
+	<% end %>
+<% end %>
