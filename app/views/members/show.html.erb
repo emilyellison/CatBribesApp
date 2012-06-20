@@ -1,14 +1,28 @@
 <%= provide(:title, @member.full_name) %>
-<p>E-mail: <%= @member.email %></p>
-<p>Cake Day: <%= @member.created_at.strftime('%D') %></p>
-
-<% if @member.cats.count == 0 %>
-	<div class='center hero-unit'>
-		<h2>Get Started</h2>
-		<p>
-			Tell us about your cat, so you can tag your
-			feline in their CatBribes.
-		</p>
-		<%= link_to 'Add Your Cat', '#' %>
+<div class='row'>
+	<div class='span6'>
+		<%= gravatar_for @member, size: 200 %><br/><br/>
+		<p>E-mail: <%= @member.email %></p>
+		<p>Cake Day: <%= @member.created_at.strftime('%D') %></p>
+		<br/>
 	</div>
-<% end %>
+	<div class='span6'>
+		<% if @member.cats.count == 0 %>
+			<div class='center hero-unit'>
+				<h2>Get Started</h2>
+				<p>
+					Tell us about your cat, so you can tag your
+					feline in their CatBribes.
+				</p>
+				<%= link_to 'Add Your Cat', new_cat_url, class: 'btn btn-large btn-primary' %>
+			</div>
+		<% else %>
+			<% @member.cats.each do |cat| %>
+				<h2><%= cat.name %></h2>
+				<p><%= cat.breed %></p>
+				<p><%= cat.birthday %></p>
+				<p><%= cat.description %></p>
+			<% end %>
+		<% end %>
+	</div>
+</div>

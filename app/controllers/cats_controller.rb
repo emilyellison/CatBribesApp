@@ -6,6 +6,7 @@ class CatsController < ApplicationController
   
   def create
     @cat = Cat.new(params[:cat])
+    @cat.member_id = @current_member.id
     if @cat.save 
       redirect_to member_url(@current_member.id), notice: "#{@cat.name} has been added to your profile!"
     else
@@ -23,6 +24,7 @@ class CatsController < ApplicationController
   
   def update
     @cat = Cat.find_by_id(params[:id])
+    @cat.member_id = @current_member.id
     @cat.update_attributes(params[:cat])
     if @cat.save
       redirect_to member_url(@current_member.id), notice: "#{@cat.name} has been updated sucessfully."

@@ -14,10 +14,10 @@
 	<%= f.label :birthday %>
 	<%= f.date_select :birthday %>
 	<%= f.label :description, 'Tell us about your cat.' %>
-	<%= f.text_area %>
+	<%= f.text_area :description, rows: 10 %>
 	<% if @cat.new_record? %>
-		<%= f.submit 'Add Your Cat' %>
+		<%= f.submit 'Add Your Cat', class: 'btn btn-large btn-primary' %>
 	<% else %>
-		<%= f.submit 'Update Your Cat' %>
+		<%= f.submit 'Update Your Cat', class: 'btn btn-large btn-primary' %>
 	<% end %>
 <% end %>
