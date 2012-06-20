@@ -11,14 +11,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120531182721) do
+ActiveRecord::Schema.define(:version => 20120620145144) do
 
   create_table "catbribes", :force => true do |t|
     t.string   "image"
     t.text     "caption"
-    t.integer  "member_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "cat_id"
+  end
+
+  create_table "cats", :force => true do |t|
+    t.string   "name"
+    t.date     "birthday"
+    t.string   "breed"
+    t.text     "description"
+    t.integer  "member_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "members", :force => true do |t|
