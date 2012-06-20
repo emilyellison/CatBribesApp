@@ -18,7 +18,7 @@
 			</div>
 		<% else %>
 			<% @member.cats.each do |cat| %>
-				<h2><%= cat.name %></h2>
+				<h2><%= cat.name %> <%= link_to 'Edit', edit_cat_url(cat.id) %></h2>
 				<p><%= cat.breed %></p>
 				<p><%= cat.birthday %></p>
 				<p><%= cat.description %></p>
