@@ -2,3 +2,13 @@
 <p>E-mail: <%= @member.email %></p>
 <p>Cake Day: <%= @member.created_at.strftime('%D') %></p>
 
+<% if @member.cats.count == 0 %>
+	<div class='center hero-unit'>
+		<h2>Get Started</h2>
+		<p>
+			Tell us about your cat, so you can tag your
+			feline in their CatBribes.
+		</p>
+		<%= link_to 'Add Your Cat', '#' %>
+	</div>
+<% end %>
