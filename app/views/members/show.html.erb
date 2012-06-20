@@ -22,6 +22,7 @@
 				<p><%= cat.breed %></p>
 				<p><%= time_ago_in_words(cat.birthday).capitalize %> old.</p>
 				<p><%= cat.description %></p>
+				<%= link_to 'Add CatBribe', new_catbribe_url(cat_id: cat.id), class: 'btn btn-info' %>
 			<% end %>
 		<% end %>
 	</div>
