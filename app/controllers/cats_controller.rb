@@ -17,6 +17,8 @@ class CatsController < ApplicationController
   
   def show
     @cat = Cat.find_by_id(params[:id])
+    @rating = Rating.new
+    @preloaded_ratings = Rating.all(:select => "*, max(created_at)", :group => :catbribe_id)
   end
   
   def edit

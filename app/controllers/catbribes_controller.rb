@@ -4,10 +4,8 @@ class CatbribesController < ApplicationController
   
   def index
     @catbribes = Catbribe.all
-    @catbribe = Catbribe.new
     @rating = Rating.new
     @preloaded_ratings = Rating.all(:select => "*, max(created_at)", :group => :catbribe_id) 
-
   end
   
   def new
@@ -16,7 +14,6 @@ class CatbribesController < ApplicationController
   
   def create
     @catbribe = Catbribe.new(params[:catbribe])
-    @catbribe.member_id = session[:mid]
     respond_to do |format|
       if @catbribe.save
         format.html { 
