@@ -12,12 +12,21 @@
 						color:white;
 					}
 				}
-				ul li {
+				ul {
 					a {
 						margin:5px 0px;
 						font-size:20px;
 						color:white;
 					} 
+					.dropdown-menu a {
+						color:black;
+						font-size:16px;
+					}
+					.dropdown-menu a:hover {
+						background:royalblue;
+						color:white;
+						font-size:16px;
+					}
 				}
 			}
 		}
