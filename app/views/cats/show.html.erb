@@ -10,8 +10,8 @@
 		<% @cat.catbribes.each do |catbribe| %>
 		<p><%= image_tag catbribe.image, width: 300 %></p>
 		<p>
+			<%= catbribe.caption %> -
 			<strong><%= link_to catbribe.cat.name, cat_url(catbribe.cat.id) %></strong>
-			<%= catbribe.caption %>
 		</p>	
 		<p class='created_at'>
 			Created <%= time_ago_in_words(catbribe.created_at) %> ago by <%= link_to catbribe.cat.member.full_name, member_url(catbribe.cat.member.id) %>.

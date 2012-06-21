@@ -14,11 +14,11 @@
 					Tell us about your cat, so you can tag your
 					feline in their CatBribes.
 				</p>
-				<%= link_to 'Add Your Cat', new_cat_url, class: 'btn btn-large btn-primary' %>
+				<%= link_to '+ Cat', new_cat_url, class: 'btn btn-large btn-primary' %>
 			</div>
 		<% else %>
 			<% @member.cats.each do |cat| %>
-				<h2><%= cat.name %> <%= link_to 'Edit', edit_cat_url(cat.id) %></h2>
+				<h2><%= link_to cat.name, cat_url(cat.id) %> <%= link_to 'Edit', edit_cat_url(cat.id) %></h2>
 				<p><%= cat.breed %></p>
 				<p><%= time_ago_in_words(cat.birthday).capitalize %> old.</p>
 				<p><%= cat.description %></p>
