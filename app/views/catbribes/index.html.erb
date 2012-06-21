@@ -1,22 +1,26 @@
-<%= provide(:title, 'CatBribes') %>
 <div class='row'>
 	<div class='span12'>
-		<h3>
-			You feed them, and they allow you to take adorable pictures.
-		</h3>
-		<br/>
-		<% if @current_member && @current_member.cats.count > 0 %>
-			<p>
-				<%= link_to '+ CatBribe', new_catbribe_url, class: 'btn btn-info' %>
-			</p>
-		<% end %>
-	</div>
-</div>
-<br/>
-<div class='row'>
-	<div class='span6'>
-		<div id='catbribes'>
-			<%= render 'catbribes/catbribe', catbribes: @catbribes %>
+		<ul class="nav nav-tabs" id="catBribesTab">
+		  <li class="active"><a href="#popular">Popular</a></li>
+		  <li><a href="#new">New</a></li>
+		</ul>
+
+		<div class="tab-content">
+		  <div class="tab-pane active" id="popular">
+				<%= render 'catbribes/catbribe', catbribes: @catbribes %>
+			</div>
+		  <div class="tab-pane" id="new">
+		  	<%= render 'catbribes/catbribe', catbribes: @new_catbribes %>
+		  </div>
 		</div>
+		<% if @current_member && @current_member.cats.count > 0 %>
+				<%= link_to '+ CatBribe', new_catbribe_url, class: 'btn btn-info btn-large' %>
+		<% end %>
+		<br/><br/><br/>
+		<script>
+		  $(function () {
+		    $('#catBribesTab a:first').tab('show');
+		  })
+		</script>
 	</div>
 </div>

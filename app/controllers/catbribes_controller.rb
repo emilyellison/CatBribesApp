@@ -3,6 +3,7 @@ class CatbribesController < ApplicationController
   before_filter :logged_in_member, only: [ :create ]
   
   def index
+    @new_catbribes = Catbribe.order('created_at desc')
     @catbribes = Catbribe.all
     @rating = Rating.new
     @preloaded_ratings = Rating.all(:select => "*, max(created_at)", :group => :catbribe_id) 

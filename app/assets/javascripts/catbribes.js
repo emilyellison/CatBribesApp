@@ -4,6 +4,9 @@ $(document).ready( function() {
 	    $(this).closest('form').submit();
 	});
 	
-	$('.carousel').carousel();
+	$('#catBribesTab a').click(function (e) {
+	  e.preventDefault();
+	  $(this).tab('show');
+	})
 
 });
