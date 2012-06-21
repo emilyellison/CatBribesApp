@@ -2,7 +2,8 @@
 	<p><%= image_tag catbribe.image, width: 300 %></p>
 	<p>
 		
-		<%= catbribe.caption %> -
+		<%= catbribe.caption %>
+		<i class='icon-asterisk'></i>
 		<strong><%= link_to catbribe.cat.name, cat_url(catbribe.cat.id) %></strong>
 	</p>	
 	<p class='created_at'>

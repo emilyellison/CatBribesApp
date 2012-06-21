@@ -11,9 +11,11 @@
 					      <b class="caret"></b>
 					    </a>
 					    <ul class="dropdown-menu">
-					    	<li><%= link_to 'Profile', member_url(@current_member.id) %></li>
-								<li><%= link_to 'Update Profile', edit_member_url(@current_member.id) %></li>
-								<li><%= link_to 'Sign Out', sessions_url %></li>
+					    	<li>
+									<%= link_to "<i class='icon-user'></i> Profile".html_safe, member_url(@current_member.id) %>
+								</li>
+								<li><%= link_to "<i class='icon-th-list'></i> Update Profile".html_safe, edit_member_url(@current_member.id) %></li>
+								<li><%= link_to "<i class='icon-off'></i> Sign Out".html_safe, sessions_url %></li>
 					    </ul>
 					  </li>
 					</ul>
