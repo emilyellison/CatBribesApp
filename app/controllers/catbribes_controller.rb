@@ -4,10 +4,14 @@ class CatbribesController < ApplicationController
   
   def index
     @new_catbribes = Catbribe.order('created_at desc')
+    @popular_catbribes = Catbribe
     @catbribes = Catbribe.all
     @rating = Rating.new
     if @current_member
-      @preloaded_ratings = Rating.where('member_id = ?', @current_member.id).all(:select => "*, max(created_at)", :group => :catbribe_id) 
+      @preloaded_ratings = []
+      Rating.order('created_at asc').where('member_id = ?', @current_member.id).group_by(&:catbribe_id).each do |x, y|
+        @preloaded_ratings << y.last
+      end
     end
   end
   

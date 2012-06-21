@@ -1,10 +1,11 @@
 <% catbribes.each do |catbribe| %>
 <div class='row'>
-	<div class='span3'>
+	<div class='span4'>
 		<p><%= image_tag catbribe.image, width: 340 %></p>
 	</div>
 	<div class='span6'>	
 		<p class='caption'>	
+			<%#= catbribe.average_rating %><br/>
 			<%= catbribe.caption %>
 			<i class='icon-asterisk'></i>
 			<strong><%= link_to catbribe.cat.name, cat_url(catbribe.cat.id) %></strong>
