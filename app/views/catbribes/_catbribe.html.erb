@@ -1,4 +1,4 @@
-<%= content_tag_for(:p, catbribe) do %>
+<% catbribes.each do |catbribe| %>
 	<p><%= image_tag catbribe.image, width: 300 %></p>
 	<p>
 		

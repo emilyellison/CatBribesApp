@@ -4,38 +4,10 @@
 		<p><%= @cat.breed %></p>
 		<p><%= time_ago_in_words(@cat.birthday).capitalize %> old.</p>
 		<p><%= @cat.description %></p>
+		<br/>
 	</div>
-
+	
 	<div class='span6'>
-		<% @cat.catbribes.each do |catbribe| %>
-		<p><%= image_tag catbribe.image, width: 300 %></p>
-		<p>
-			<%= catbribe.caption %> -
-			<strong><%= link_to catbribe.cat.name, cat_url(catbribe.cat.id) %></strong>
-		</p>	
-		<p class='created_at'>
-			Created <%= time_ago_in_words(catbribe.created_at) %> ago by <%= link_to catbribe.cat.member.full_name, member_url(catbribe.cat.member.id) %>.
-		</p>
-		<% if @current_member %>
-			<% preloaded_rating = @preloaded_ratings.select {|f| f["catbribe_id"] == catbribe.id }[0] %>
-			<% if preloaded_rating %>
-				<% preloaded_catbribes = preloaded_rating[:bribes] %>
-			<% end %>
-			<div class='rating_form'>
-			<%= form_for @rating, remote: true do |f| %>
-				<%= f.hidden_field :catbribe_id, value: catbribe.id %>
-				<%= f.hidden_field :member_id, value: @current_member.id %>
-				<% 5.times do |i| %>
-					<% if preloaded_catbribes == (i + 1) %>
-						<%= f.radio_button :bribes, "#{i + 1}", :class => 'star', :checked => 'checked' %>
-					<% else %>
-						<%= f.radio_button :bribes, "#{i + 1}", :class => 'star' %>
-					<% end %>
-				<% end %>
-			<% end %>
-			</div>
-		<% end %>
-		<br/><br/>
-		<% end %>
+		<%= render 'catbribes/catbribe', catbribes: @cat.catbribes %>
 	</div>
 </div>
