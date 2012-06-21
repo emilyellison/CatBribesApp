@@ -6,7 +6,9 @@ class CatbribesController < ApplicationController
     @new_catbribes = Catbribe.order('created_at desc')
     @catbribes = Catbribe.all
     @rating = Rating.new
-    @preloaded_ratings = Rating.all(:select => "*, max(created_at)", :group => :catbribe_id) 
+    if @current_member
+      @preloaded_ratings = Rating.where('member_id = ?', @current_member.id).all(:select => "*, max(created_at)", :group => :catbribe_id) 
+    end
   end
   
   def new
