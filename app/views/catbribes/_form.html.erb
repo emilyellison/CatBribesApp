@@ -8,9 +8,11 @@
 		</div>
 	<% end %>
 	<%= form_for @catbribe, url: catbribes_url, remote: true, html: { multipart: true } do |f| %>
+		<%= f.label :cat_id, 'Cat' %>
+		<%= f.select :cat_id, Cat.find_all_by_member_id(@current_member.id).collect { |x| x.name }, include_blank: true  %><br/><br/>
+		<%= f.label :image, 'CatBribe' %>
 		<%= f.file_field :image %><br/><br/>
 		<%= f.label :caption %>
-		<%= f.hidden_field :cat_id, value: params[:cat_id] %>
 		<%= f.text_area :caption, rows: 3, placeholder: 'So it seems that Mittens also enjoys eating mittens.' %><br/><br/>
 		<%= f.submit 'Add a CatBribe', class: 'btn btn-info' %>
 	<% end %>

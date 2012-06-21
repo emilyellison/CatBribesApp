@@ -1,7 +1,15 @@
 <%= provide(:title, 'CatBribes') %>
 <div class='row'>
 	<div class='span12'>
-		<h3>You feed them, and they allow you to take adorable pictures.</h3>
+		<h3>
+			You feed them, and they allow you to take adorable pictures.
+		</h3>
+		<br/>
+		<% if @current_member && @current_member.cats.count > 0 %>
+			<p>
+				<%= link_to '+ CatBribe', new_catbribe_url, class: 'btn btn-info' %>
+			</p>
+		<% end %>
 	</div>
 </div>
 <br/>

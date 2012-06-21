@@ -11,8 +11,8 @@
 			<div class='center hero-unit'>
 				<h2>Get Started</h2>
 				<p>
-					Tell us about your cat, so you can tag your
-					feline in their CatBribes.
+					Tell us about your cat, so you can add CatBribes
+					and tag your cat.
 				</p>
 				<%= link_to '+ Cat', new_cat_url, class: 'btn btn-large btn-primary' %>
 			</div>
@@ -22,7 +22,6 @@
 				<p><%= cat.breed %></p>
 				<p><%= time_ago_in_words(cat.birthday).capitalize %> old.</p>
 				<p><%= cat.description %></p>
-				<%= link_to '+ CatBribe', new_catbribe_url(cat_id: cat.id), class: 'btn btn-info' %>
 				<hr/>
 			<% end %>
 			<%= link_to '+ Cat', new_cat_url, class: 'btn btn-large btn-primary' %>
