@@ -5,7 +5,6 @@
 	</div>
 	<div class='span6'>	
 		<p class='caption'>	
-			<%#= catbribe.average_rating %><br/>
 			<%= catbribe.caption %>
 			<i class='icon-asterisk'></i>
 			<strong><%= link_to catbribe.cat.name, cat_url(catbribe.cat.id) %></strong>
@@ -29,6 +28,7 @@
 						<%= f.radio_button :bribes, "#{i + 1}", :class => 'star' %>
 					<% end %>
 				<% end %>
+				<span>Average Rating: <%= catbribe.average_rating %></span>
 			<% end %>
 			</div>
 		<% end %>

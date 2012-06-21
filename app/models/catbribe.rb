@@ -9,16 +9,12 @@ class Catbribe < ActiveRecord::Base
   validates :cat_id, presence: true
   validates :image, presence: true
 
-  # def average_rating
-  #    latest_ratings = ratings.find(:all, 
-  #      group: 'member_id'
-  #    )
-  #    rating_sum = 0
-  #    latest_ratings.each do |rating|
-  #      rating_sum += rating.bribes
-  #    end
-  #    average_rating = (rating_sum + 0.0) / latest_ratings.count
-  #    return average_rating
-  #  end
+  def average_rating
+    latest_ratings = []
+    ratings.order('created_at asc').group_by(&:member_id).each do |x, y|
+      latest_ratings << y.last.bribes
+    end
+    average_rating = (latest_ratings.sum + 0.0) / latest_ratings.count
+  end
   
 end

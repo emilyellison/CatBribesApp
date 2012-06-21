@@ -4,8 +4,8 @@ class CatbribesController < ApplicationController
   
   def index
     @new_catbribes = Catbribe.order('created_at desc')
-    @popular_catbribes = Catbribe
     @catbribes = Catbribe.all
+    @popular_catbribes = Catbribe.all.sort_by { |x| -x.average_rating }
     @rating = Rating.new
     if @current_member
       @preloaded_ratings = []
