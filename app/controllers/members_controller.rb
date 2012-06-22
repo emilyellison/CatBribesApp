@@ -9,6 +9,7 @@ class MembersController < ApplicationController
   def create
     @member = Member.new(params[:member])
     if @member.save
+      session[:mid] = @member.id
       redirect_to root_url, notice: "Congrats on becoming a member of CatBribes, #{@member.first}!"
     else
       render :new
