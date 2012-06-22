@@ -7,7 +7,7 @@
 			<% end %>
 		</div>
 	<% end %>
-	<%= form_for @catbribe, url: catbribes_url, remote: true, html: { multipart: true } do |f| %>
+	<%= form_for @catbribe, remote: true, html: { multipart: true } do |f| %>
 		<%= f.label :cat_id, 'Cat' %>
 		<%= f.select :cat_id, CatMember.authorized_cats_for(session[:mid]), include_blank: true  %><br/><br/>
 		<%= f.label :image, 'CatBribe' %>

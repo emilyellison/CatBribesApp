@@ -1,0 +1,11 @@
+<div class='row'>
+	<div class='span12'>
+		<% if @current_member.present? %>
+		<h3>Edit Your CatBribe</h3>
+		<br/>
+			<div id='catbribes_form'>
+				<%= render 'catbribes/form' %>
+			</div>
+		<% end %>
+	</div>
+</div>

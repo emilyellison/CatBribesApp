@@ -25,11 +25,11 @@ class CatsController < ApplicationController
   
   def show
     @auth = []
-    CatMember.find_all_by_id(Cat.find_by_id(params[:id])).each do |catmember|
-    	if catmember.member_id == session[:mid]
-    		@auth << true 
-      end
-    end
+   CatMember.find_all_by_cat_id(Cat.find_by_id(params[:id]).id).each do |catmember|
+   	if catmember.member_id == session[:mid]
+   		@auth << true 
+     end
+   end
     @cat = Cat.find_by_id(params[:id])
     @rating = Rating.new
     if @current_member

@@ -35,4 +35,21 @@ class CatbribesController < ApplicationController
     end
   end
   
+  def edit
+    member_match(session[:mid], Catbribe.find_by_id(params[:id]).member_id)
+    @catbribe = Catbribe.find_by_id(params[:id])
+  end
+  
+  def update
+    member_match(session[:mid], Catbribe.find_by_id(params[:id]).member_id)
+    @catbribe = Catbribe.find_by_id(params[:id])
+    @catbribe.update_attributes(params[:catbribe])
+    if @catbribe.save
+      flash[:success] = 'Your CatBribe has been updated successfully.'
+      redirect_to member_url(session[:mid])
+    else
+      render :edit
+    end
+  end
+  
 end
