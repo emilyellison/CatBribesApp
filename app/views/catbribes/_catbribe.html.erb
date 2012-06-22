@@ -1,3 +1,4 @@
+<div id='catbribes'>
 <% catbribes.each do |catbribe| %>
 <div class='row'>
 	<div class='span4'>
@@ -13,29 +14,30 @@
 			Created <%= time_ago_in_words(catbribe.created_at) %> ago by <%= link_to catbribe.member.full_name, member_url(catbribe.member.id) %>.
 		</p>
 		<div class='rating_form'>
-		<% if @current_member %>
-			<% preloaded_rating = @preloaded_ratings.select {|f| f["catbribe_id"] == catbribe.id }[0] %>
-			<% if preloaded_rating %>
-				<% preloaded_catbribes = preloaded_rating[:bribes] %>
-			<% end %>
-			<%= form_for @rating, remote: true do |f| %>
-				<%= f.hidden_field :catbribe_id, value: catbribe.id %>
-				<%= f.hidden_field :member_id, value: @current_member.id %>
-				<% 5.times do |i| %>
-					<% if preloaded_catbribes == (i + 1) %>
-						<%= f.radio_button :bribes, "#{i + 1}", :class => 'star', :checked => 'checked' %>
-					<% else %>
-						<%= f.radio_button :bribes, "#{i + 1}", :class => 'star' %>
+			<% if @current_member %>
+				<% preloaded_rating = @preloaded_ratings.select {|f| f["catbribe_id"] == catbribe.id }[0] %>
+				<% if preloaded_rating %>
+					<% preloaded_catbribes = preloaded_rating[:bribes] %>
+				<% end %>
+				<%= form_for @rating, remote: true do |f| %>
+					<%= f.hidden_field :catbribe_id, value: catbribe.id %>
+					<%= f.hidden_field :member_id, value: @current_member.id %>
+					<% 5.times do |i| %>
+						<% if preloaded_catbribes == (i + 1) %>
+							<%= f.radio_button :bribes, "#{i + 1}", :class => 'star', :checked => 'checked' %>
+						<% else %>
+							<%= f.radio_button :bribes, "#{i + 1}", :class => 'star' %>
+						<% end %>
 					<% end %>
 				<% end %>
 			<% end %>
-		<% end %>
-		<% if @current_member.nil? %>
-			<p class='little_break'>&nbsp;</p>
-		<% end %>
-		<span>Average Rating: <%= catbribe.average_rating %></span>
+			<% if @current_member.nil? %>
+				<p class='little_break'>&nbsp;</p>
+			<% end %>
+			<span>Average Rating: <%= catbribe.average_rating %></span>
 		</div>
 	</div>
 </div>
 	<div class='row'><hr/></div>
 <% end %>
+</div>

@@ -5,6 +5,9 @@
 		<p><%= @cat.breed %></p>
 		<p><%= "#{time_ago_in_words(cat.birthday).capitalize} old." if @cat.birthday.present? %></p>
 		<p><%= @cat.description %></p>
+		<% if @current_member.present? %>
+		<p><%= mail_to @cat.email(@cat.id), "+ Request Authorization", :encode => 'hex', :subject => "Request Authorization for #{@cat.name}", :body => "I'd like to be able to post photos of #{@cat.name} too." %></p>
+		<% end %>
 		<br/>
 
 		<h2>Recent CatBribes</h2>

@@ -1,6 +1,6 @@
 class CatsController < ApplicationController
   
-  before_filter :logged_in_member
+  before_filter :logged_in_member, except: [ :show ]
   
   def new
     @cat = Cat.new
