@@ -1,5 +1,5 @@
 <% if @member.errors.present? %>
-	<div class='notice'>
+	<div class='alert alert-error'>
 		<p>Whoops! Something went wrong...</p>
 		<% @member.errors.full_messages.each do |message| %>
 			<li><%= message %>.</li>
