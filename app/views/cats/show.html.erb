@@ -8,6 +8,6 @@
 	</div>
 	
 	<div class='span6'>
-		<%= render 'catbribes/catbribe', catbribes: @cat.catbribes.all.sort_by { |x| -x.average_rating } %>
+		<%= render 'catbribes/catbribe', catbribes: @cat.catbribes.order('created_at desc') %>
 	</div>
 </div>
