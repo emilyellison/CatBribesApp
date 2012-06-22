@@ -26,7 +26,7 @@ class CatbribesController < ApplicationController
       if @catbribe.save
         format.html { 
           flash[:success] = 'Congrats on adding your CatBribe!'
-          redirect_to root_url 
+          redirect_to member_url(session[:mid]) 
         }
         format.js
       else
