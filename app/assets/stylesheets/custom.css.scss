@@ -113,10 +113,15 @@
 		}
 	}
 	.rating_form {
-		margin:0px 0px;
+		margin:-6px 0px;
+		#rating_bribes_5 {
+			margin-right:10px;
+		}
 		span {
 			font-size:16px;
-			margin-left:10px;
 		}
+	}
+	.add_cat {
+		margin:-15px 0px;
 	}
 }
