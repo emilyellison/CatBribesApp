@@ -12,7 +12,7 @@
 	<%= f.label :breed %>
 	<%= f.text_field :breed %>
 	<%= f.label :birthday %>
-	<p><%= f.text_field :birthday, id: 'datepicker' %></p>
+	<%= f.date_select :birthday, class: 'datepicker' %>
 	<%= f.label :description, 'Tell us about your cat.' %>
 	<%= f.text_area :description, rows: 10 %>
 	<br/><br/>
