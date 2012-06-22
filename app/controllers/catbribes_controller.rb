@@ -21,6 +21,7 @@ class CatbribesController < ApplicationController
   
   def create
     @catbribe = Catbribe.new(params[:catbribe])
+    @catbribe.member_id = session[:mid]
     respond_to do |format|
       if @catbribe.save
         format.html { 

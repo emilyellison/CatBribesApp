@@ -10,7 +10,7 @@
 			<strong><%= link_to catbribe.cat.name, cat_url(catbribe.cat.id) %></strong>
 		</p>	
 		<p class='created_at'>
-			Created <%= time_ago_in_words(catbribe.created_at) %> ago by <%= link_to catbribe.cat.member.full_name, member_url(catbribe.cat.member.id) %>.
+			Created <%= time_ago_in_words(catbribe.created_at) %> ago by <%= link_to catbribe.member.full_name, member_url(catbribe.member.id) %>.
 		</p>
 		<div class='rating_form'>
 		<% if @current_member %>

@@ -9,7 +9,7 @@
 	<% end %>
 	<%= form_for @catbribe, url: catbribes_url, remote: true, html: { multipart: true } do |f| %>
 		<%= f.label :cat_id, 'Cat' %>
-		<%= f.select :cat_id, Cat.find_all_by_member_id(@current_member.id).collect { |x| x.name }, include_blank: true  %><br/><br/>
+		<%= f.select :cat_id, CatMember.authorized_cats_for(session[:mid]), include_blank: true  %><br/><br/>
 		<%= f.label :image, 'CatBribe' %>
 		<%= f.file_field :image %><br/><br/>
 		<%= f.label :caption %>

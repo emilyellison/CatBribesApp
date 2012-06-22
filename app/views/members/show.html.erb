@@ -26,7 +26,7 @@
 			<% @member.cats.each do |cat| %>
 				<h2><%= link_to cat.name, cat_url(cat.id) %> <%= link_to "<i class='icon-pencil'></i>".html_safe, edit_cat_url(cat.id) %></h2>
 				<p><%= cat.breed %></p>
-				<p><%= time_ago_in_words(cat.birthday).capitalize %> old.</p>
+				<p><%= "#{time_ago_in_words(cat.birthday).capitalize} old." if cat.birthday.present? %></p>
 				<p><%= cat.description %></p>
 				<hr/>
 			<% end %>	

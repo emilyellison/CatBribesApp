@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120620145144) do
+ActiveRecord::Schema.define(:version => 20120622140241) do
+
+  create_table "cat_members", :force => true do |t|
+    t.integer  "cat_id"
+    t.integer  "member_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "catbribes", :force => true do |t|
     t.string   "image"
@@ -19,6 +26,7 @@ ActiveRecord::Schema.define(:version => 20120620145144) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "cat_id"
+    t.integer  "member_id"
   end
 
   create_table "cats", :force => true do |t|
@@ -26,7 +34,6 @@ ActiveRecord::Schema.define(:version => 20120620145144) do
     t.date     "birthday"
     t.string   "breed"
     t.text     "description"
-    t.integer  "member_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end

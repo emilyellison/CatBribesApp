@@ -1,13 +1,14 @@
-<%= provide(:title, @cat.name) %>
 <div class='row'>
 	<div class='span6'>
+		<h2><%= @cat.name %></h2>
+		<br/>
 		<p><%= @cat.breed %></p>
-		<p><%= time_ago_in_words(@cat.birthday).capitalize %> old.</p>
+		<p><%= "#{time_ago_in_words(cat.birthday).capitalize} old." if @cat.birthday.present? %></p>
 		<p><%= @cat.description %></p>
 		<br/>
-	</div>
-	
-	<div class='span6'>
+
+		<h2>Recent CatBribes</h2>
+		<br/>
 		<%= render 'catbribes/catbribe', catbribes: @cat.catbribes.order('created_at desc') %>
 	</div>
 </div>
