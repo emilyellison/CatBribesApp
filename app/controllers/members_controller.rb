@@ -17,6 +17,13 @@ class MembersController < ApplicationController
   
   def show
     @member = Member.find_by_id(params[:id])
+    @rating = Rating.new
+    if @current_member
+      @preloaded_ratings = []
+      Rating.order('created_at asc').where('member_id = ?', @current_member.id).group_by(&:catbribe_id).each do |x, y|
+        @preloaded_ratings << y.last
+      end
+    end
   end
   
   def edit

@@ -1,12 +1,12 @@
-<%= provide(:title, @member.full_name) %>
 <div class='row'>
-	<div class='span6'>
+	<div class='span5'>
+		<h2>Emily Ellison</h2>
+		<br/>
 		<%= gravatar_for @member, size: 200 %><br/><br/>
 		<p>E-mail: <%= @member.email %></p>
 		<p>Cake Day: <%= @member.created_at.strftime('%D') %></p>
-		<br/>
-	</div>
-	<div class='span6'>
+		<span><%= link_to '+ Cat', new_cat_url, class: 'btn btn-primary' %></span>
+		<br/><br/>
 		<% if @member.cats.count == 0 %>
 			<div class='center hero-unit'>
 				<h2>Get Started</h2>
@@ -23,8 +23,12 @@
 				<p><%= time_ago_in_words(cat.birthday).capitalize %> old.</p>
 				<p><%= cat.description %></p>
 				<hr/>
-			<% end %>
-			<%= link_to '+ Cat', new_cat_url, class: 'btn btn-large btn-primary' %>
+			<% end %>	
 		<% end %>
+	</div>
+	<div class='span2'>&nbsp;</div>
+	<div class='span5'>
+		<h2>Recent CatBribes</h2><br/>
+		<%= render 'catbribes/catbribe', catbribes: @member.catbribes.order('created_at desc') %>
 	</div>
 </div>
