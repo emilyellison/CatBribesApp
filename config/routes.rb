@@ -7,6 +7,7 @@ CatBribesApp::Application.routes.draw do
   resources :sessions, only: [ :new, :create, ]
   resources :ratings, only: [ :create ]
   resources :cats, except: [ :index ]
+  resources :cat_members, only: [ :new, :create ]
   
   get 'sessions' => 'sessions#destroy'
   get 'neo' => 'static_pages#neo', as: :neo

@@ -28,6 +28,7 @@
 				<p><%= cat.breed %></p>
 				<p><%= "#{time_ago_in_words(cat.birthday).capitalize} old." if cat.birthday.present? %></p>
 				<p><%= cat.description %></p>
+				<p><%= link_to '+ Authorize Member', new_cat_member_url(cat_id: cat.id) if @current_member.id == params[:id].to_i %></p>
 				<hr/>
 			<% end %>	
 		<% end %>

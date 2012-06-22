@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   def logged_in_member
     if @current_member.nil?
       flash[:error] = 'You must be signed in first.' 
-      redirect_to new_session_url, notice: 'You must be signed in first.'
+      redirect_to new_session_url
     end
   end
   

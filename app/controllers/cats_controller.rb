@@ -25,7 +25,7 @@ class CatsController < ApplicationController
   
   def show
     @auth = []
-    CatMember.find_all_by_id(Cat.find_by_id(params[:id]).id).each do |catmember|
+    CatMember.find_all_by_id(Cat.find_by_id(params[:id])).each do |catmember|
     	if catmember.member_id == session[:mid]
     		@auth << true 
       end
@@ -42,7 +42,7 @@ class CatsController < ApplicationController
   
   def edit
     auth = []
-    CatMember.find_all_by_id(Cat.find_by_id(params[:id]).id).each do |catmember|
+    CatMember.find_all_by_cat_id(Cat.find_by_id(params[:id]).id).each do |catmember|
     	if catmember.member_id == session[:mid]
     		auth << true 
       end
@@ -57,7 +57,7 @@ class CatsController < ApplicationController
   
   def update
     auth = []
-    CatMember.find_all_by_id(Cat.find_by_id(params[:id]).id).each do |catmember|
+    CatMember.find_all_by_cat_id(Cat.find_by_id(params[:id]).id).each do |catmember|
     	if catmember.member_id == session[:mid]
     		auth << true 
       end
@@ -79,7 +79,7 @@ class CatsController < ApplicationController
   
   def destroy
     auth = []
-    CatMember.find_all_by_id(Cat.find_by_id(params[:id]).id).each do |catmember|
+    CatMember.find_all_by_cat_id(Cat.find_by_id(params[:id]).id).each do |catmember|
     	if catmember.member_id == session[:mid]
     		auth << true 
       end

@@ -1,0 +1,14 @@
+<div class='row'>
+	<div class='span12'>
+		<h2>Authorization</h2>
+		<br/>
+		<h3>Authorization for another member allows that member to:</h3>
+		<br/>
+			<li>Add Catbribes of <%= Cat.find_by_id(params[:cat_id]).name %></li>
+			<li>Editing <%= Cat.find_by_id(params[:cat_id]).name %>'s Profile</li>
+		<br/>
+		<h3>Add Authorization for  for <%= Cat.find_by_id(params[:cat_id]).name %></h3>
+		<br/>
+		<%= render 'cat_members/form' %>
+	</div>
+</div>

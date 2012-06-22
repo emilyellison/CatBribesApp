@@ -1,0 +1,15 @@
+<% if @cat_member.errors.present? %>
+	<div class='alert alert-error'>
+		<p>Whoops! Your form is missing something...</p>
+		<% @cat_member.errors.full_messages.each do |message| %>
+			<li><%= message %>.</li>
+		<% end %>
+	</div>
+<% end %>
+<%= form_for @cat_member do |f| %>
+	<%= f.hidden_field :cat_id, value: params[:cat_id] %>
+	<%= f.label :member_id, 'Member' %>
+	<%= f.select :member_id, @cat_member.nonauthorized_members_for(params[:cat_id]), include_blank: true %>
+	<br/><br/>
+	<%= f.submit 'Add', class: 'btn btn-large btn-info' %>
+<% end %>
