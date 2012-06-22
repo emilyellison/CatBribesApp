@@ -1,5 +1,8 @@
 class SessionsController < ApplicationController
   
+  before_filter :logged_in_member, only: [ :destroy ]
+  before_filter :logged_out_member, only: [ :new, :create ]
+  
   def new
     
   end

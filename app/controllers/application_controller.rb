@@ -10,4 +10,8 @@ class ApplicationController < ActionController::Base
   def logged_in_member
     redirect_to new_session_url, notice: 'You must be signed in first.' if @current_member.nil?
   end
+  
+  def logged_out_member
+    redirect_to member_url(@current_member.id), notice: 'You must be signed out first.' if @current_member.present?
+  end
 end
