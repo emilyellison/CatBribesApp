@@ -8,5 +8,9 @@ $(document).ready( function() {
 	  e.preventDefault();
 	  $(this).tab('show');
 	})
+	
+	$(function() {
+		$( "#datepicker" ).datepicker({});
+	});
 
 });

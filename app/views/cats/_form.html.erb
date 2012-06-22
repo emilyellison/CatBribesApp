@@ -12,12 +12,13 @@
 	<%= f.label :breed %>
 	<%= f.text_field :breed %>
 	<%= f.label :birthday %>
-	<%= f.date_select :birthday %>
+	<p><%= f.text_field :birthday, id: 'datepicker' %></p>
 	<%= f.label :description, 'Tell us about your cat.' %>
 	<%= f.text_area :description, rows: 10 %>
+	<br/><br/>
 	<% if @cat.new_record? %>
-		<%= f.submit 'Add Your Cat', class: 'btn btn-large btn-primary' %>
+		<%= f.submit 'Add Your Cat', class: 'btn btn-primary btn-large' %>
 	<% else %>
-		<%= f.submit 'Update Your Cat', class: 'btn btn-large btn-primary' %>
+		<%= f.submit 'Update Your Cat', class: 'btn btn-primary btn-large' %>
 	<% end %>
 <% end %>

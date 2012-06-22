@@ -10,6 +10,7 @@
  *
  *= require jquery-star-rating
  *= require bootstrap
+ *= require jquery-ui-1.8.21.custom
  *= require custom
  *= require_self
 */
