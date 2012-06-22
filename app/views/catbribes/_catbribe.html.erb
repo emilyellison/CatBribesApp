@@ -30,6 +30,9 @@
 				<% end %>
 			<% end %>
 		<% end %>
+		<% if @current_member.nil? %>
+		<br/>
+		<% end %>
 		<span>Average Rating: <%= catbribe.average_rating %></span>
 		</div>
 	</div>

@@ -1,6 +1,6 @@
 class MembersController < ApplicationController
 
-  before_filter :logged_in_member, only: [ :show ]
+  before_filter :logged_in_member, only: [ :show, :edit, :update ]
 
   def new
     @member = Member.new

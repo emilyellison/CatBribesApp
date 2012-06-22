@@ -1,6 +1,6 @@
 class CatbribesController < ApplicationController
   
-  before_filter :logged_in_member, only: [ :create ]
+  before_filter :logged_in_member, only: [ :new, :create ]
   
   def index
     @new_catbribes = Catbribe.order('created_at desc')

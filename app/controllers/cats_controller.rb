@@ -1,5 +1,7 @@
 class CatsController < ApplicationController
   
+  before_filter :logged_in_member
+  
   def new
     @cat = Cat.new
   end

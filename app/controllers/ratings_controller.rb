@@ -1,6 +1,6 @@
 class RatingsController < ApplicationController
   
-  before_filter :logged_in_member, only: [ :create ]
+  before_filter :logged_in_member
   
   def create
     @rating = Rating.new(params[:rating])
