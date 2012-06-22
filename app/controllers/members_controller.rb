@@ -29,10 +29,12 @@ class MembersController < ApplicationController
   end
   
   def edit
+    member_match(params[:id].to_i, session[:mid])
     @member = Member.find_by_id(params[:id])
   end
   
   def update
+    member_match(params[:id].to_i, session[:mid])
     @member = Member.find_by_id(params[:id])
     @member.update_attributes(params[:member])
     if @member.save

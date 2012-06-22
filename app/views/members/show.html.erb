@@ -5,7 +5,7 @@
 		<%= gravatar_for @member, size: 200 %><br/><br/>
 		<p>E-mail: <%= @member.email %></p>
 		<p>Cake Day: <%= @member.created_at.strftime('%D') %></p>
-		<% if @member.cats.count == 0 %>
+		<% if @member.cats.count == 0 && @member.id == session[:mid] %>
 			<br/>
 			<br/>
 			<div class='center hero-unit'>
@@ -21,10 +21,10 @@
 			<br/>
 			<h2>
 				Cats 
-				<%= link_to '+ Cat', new_cat_url, class: 'btn btn-large btn-info pull-right add_cat' if @member.cats.count > 0 %>
+				<%= link_to '+ Cat', new_cat_url, class: 'btn btn-large btn-info pull-right add_cat' if @member.cats.count > 0 && @member.id == session[:mid] %>
 			</h2>
 			<% @member.cats.each do |cat| %>
-				<h2><%= link_to cat.name, cat_url(cat.id) %> <%= link_to "<i class='icon-pencil'></i>".html_safe, edit_cat_url(cat.id) %></h2>
+				<h2><%= link_to cat.name, cat_url(cat.id) %> <%= link_to "<i class='icon-pencil'></i>".html_safe, edit_cat_url(cat.id) if @member.id == session[:mid] %></h2>
 				<p><%= cat.breed %></p>
 				<p><%= "#{time_ago_in_words(cat.birthday).capitalize} old." if cat.birthday.present? %></p>
 				<p><%= cat.description %></p>

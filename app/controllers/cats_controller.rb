@@ -24,6 +24,12 @@ class CatsController < ApplicationController
   end
   
   def show
+    @auth = []
+    CatMember.find_all_by_id(Cat.find_by_id(params[:id]).id).each do |catmember|
+    	if catmember.member_id == session[:mid]
+    		@auth << true 
+      end
+    end
     @cat = Cat.find_by_id(params[:id])
     @rating = Rating.new
     if @current_member
@@ -35,23 +41,56 @@ class CatsController < ApplicationController
   end
   
   def edit
-    @cat = Cat.find_by_id(params[:id])
+    auth = []
+    CatMember.find_all_by_id(Cat.find_by_id(params[:id]).id).each do |catmember|
+    	if catmember.member_id == session[:mid]
+    		auth << true 
+      end
+    end
+    if auth.blank?
+      flash[:error] = 'You were not authorized to view that page.'
+      redirect_to member_url(session[:mid])
+    else
+      @cat = Cat.find_by_id(params[:id])
+    end
   end
   
   def update
-    @cat = Cat.find_by_id(params[:id])
-    @cat.update_attributes(params[:cat])
-    if @cat.save
-      flash[:success] = "#{@cat.name} has been updated sucessfully."
-      redirect_to member_url(@current_member.id)
+    auth = []
+    CatMember.find_all_by_id(Cat.find_by_id(params[:id]).id).each do |catmember|
+    	if catmember.member_id == session[:mid]
+    		auth << true 
+      end
+    end
+    if auth.blank?
+      flash[:error] = 'You were not authorized to view that page.'
+      redirect_to member_url(session[:mid])
     else
-      render :edit
+      @cat = Cat.find_by_id(params[:id])
+      @cat.update_attributes(params[:cat])
+      if @cat.save
+        flash[:success] = "#{@cat.name} has been updated sucessfully."
+        redirect_to member_url(@current_member.id)
+      else
+        render :edit
+      end
     end
   end
   
   def destroy
-    @cat = Cat.find_by_id(params[:id])
-    @cat.destroy
+    auth = []
+    CatMember.find_all_by_id(Cat.find_by_id(params[:id]).id).each do |catmember|
+    	if catmember.member_id == session[:mid]
+    		auth << true 
+      end
+    end
+    if auth.blank?
+      flash[:error] = 'You were not authorized to view that page.'
+      redirect_to member_url(session[:mid])
+    else
+      @cat = Cat.find_by_id(params[:id])
+      @cat.destroy
+    end
   end
   
 end
