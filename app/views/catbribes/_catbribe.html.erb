@@ -9,7 +9,8 @@
 			<%= catbribe.caption %>
 			<i class='icon-asterisk'></i>
 			<strong><%= link_to catbribe.cat.name, cat_url(catbribe.cat.id) %></strong>
-			<%= link_to "<i class='icon-pencil'></i>".html_safe, edit_catbribe_url(catbribe.cat.id) if @current_member.present? && catbribe.member_id == @current_member.id %>
+			<%= link_to "<i class='icon-pencil'></i>".html_safe, edit_catbribe_url(catbribe.id) if @current_member.present? && catbribe.member_id == @current_member.id %>
+			<%= link_to "<i class='icon-trash'></i>".html_safe, catbribe_url(catbribe.id), method: :delete, confirm: 'Are you sure you want to delete this CatBribe?' if @current_member.present? && catbribe.member_id == @current_member.id %>
 		</p>	
 		<p class='created_at'>
 			Created <%= time_ago_in_words(catbribe.created_at) %> ago by <%= link_to catbribe.member.full_name, member_url(catbribe.member.id) %>.

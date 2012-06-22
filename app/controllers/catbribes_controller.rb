@@ -52,4 +52,12 @@ class CatbribesController < ApplicationController
     end
   end
   
+  def destroy
+    member_match(session[:mid], Catbribe.find_by_id(params[:id]).member_id)
+    @catbribe = Catbribe.find_by_id(params[:id])
+    @catbribe.destroy
+    flash[:success] = 'Your CatBribe has been deleted successfully.'
+    redirect_to member_url(session[:mid])
+  end
+  
 end
