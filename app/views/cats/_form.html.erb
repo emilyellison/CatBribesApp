@@ -17,8 +17,8 @@
 	<%= f.text_area :description, rows: 10 %>
 	<br/><br/>
 	<% if @cat.new_record? %>
-		<%= f.submit 'Add Your Cat', class: 'btn btn-primary btn-large' %>
+		<%= f.submit 'Add Your Cat', class: 'btn btn-primary btn-info' %>
 	<% else %>
-		<%= f.submit 'Update Your Cat', class: 'btn btn-primary btn-large' %>
+		<%= f.submit 'Update Your Cat', class: 'btn btn-primary btn-info' %>
 	<% end %>
 <% end %>
