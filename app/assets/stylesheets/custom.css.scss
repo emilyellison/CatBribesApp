@@ -10,6 +10,13 @@
     width: 14px;
 		margin:2px 0px;
 }
+[class^="icon-"]:last-child,
+[class*=" icon-"]:last-child {
+  *margin-left: 0;
+}
+.icon-white {
+  background-image: url("/assets/glyphicons-halflings-white.png");
+}
 
 /*Header */
 
