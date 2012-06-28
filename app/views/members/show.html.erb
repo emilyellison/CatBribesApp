@@ -3,7 +3,7 @@
 		<h2><%= @member.full_name %></h2>
 		<br/>
 		<%= gravatar_for @member, size: 200 %><br/><br/>
-		<p>E-mail: <%= @member.email %></p>
+		<%= "<p>E-mail: #{@member.email}</p>".html_safe if @current_member == session[:mid]%>
 		<p>Cake Day: <%= @member.created_at.strftime('%D') %></p>
 		<% if @member.cats.count == 0 && @member.id == session[:mid] %>
 			<br/>
@@ -38,7 +38,7 @@
 		<div class='span5'>
 			<h2>Recent CatBribes</h2><br/>
 			<%= render 'catbribes/catbribe', catbribes: @member.catbribes.order('created_at desc') %>
-			<%= link_to '+ CatBribe', new_catbribe_url, class: 'btn btn-info btn-large' %>
+			<%= link_to '+ CatBribe', new_catbribe_url, class: 'btn btn-info btn-large' if @current_member.id == params[:id]%>
 			<br/><br/><br/>
 		</div>
 	<% end %>
