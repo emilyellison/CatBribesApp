@@ -13,7 +13,7 @@ class Catbribe < ActiveRecord::Base
   validates :image,
       :presence => true,
       :file_size => { 
-        :maximum => 0.6.megabytes.to_i
+        :maximum => 0.8.megabytes.to_i
       }
   
 
